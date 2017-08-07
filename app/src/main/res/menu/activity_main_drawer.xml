@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--TODO:Add icons to the following items-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_recentActivities"
+            android:title="@string/action_recentActivities" />
+        <item
+            android:id="@+id/nav_news"
+            android:title="@string/action_news" />
+        <item
+            android:id="@+id/nav_tickets"
+            android:title="@string/action_tickets" />
+        <item
+            android:id="@+id/nav_sales"
+            android:title="@string/action_sales" />
+        <item
+            android:id="@+id/nav_courseSchedule"
+            android:title="@string/action_courseSchedule"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/action_settings"/>
+    </group>
+
+   <!--TODO: potential login function-->
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>
