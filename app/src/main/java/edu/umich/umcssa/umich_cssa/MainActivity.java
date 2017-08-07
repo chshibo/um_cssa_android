@@ -1,5 +1,7 @@
 package edu.umich.umcssa.umich_cssa;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,18 +18,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
-
+//FIXME:Compatibility of drawer and fragment
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener ,SettingsFragment.OnFragmentInteractionListener{
-    private android.app.FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
+        implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
+        RecentActivitiesFragment.OnFragmentInteractionListener,NewsFragment.OnFragmentInteractionListener,
+        SalesFragment.OnFragmentInteractionListener,TicketsFragment.OnFragmentInteractionListener,
+        ScheduleFragment.OnFragmentInteractionListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Initialize the fragmentManager and fragment transaction
-        fragmentManager=getFragmentManager();
-        fragmentTransaction=fragmentManager.beginTransaction();
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,6 +49,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //T
     }
 
     @Override
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            SettingsFragment settingsFragment=new SettingsFragment();
+            replaceWithFragment(settingsFragment);
             return true;
         }
 
@@ -96,23 +99,34 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_recentActivities) {
-
+            RecentActivitiesFragment recentActivitiesFragment=new RecentActivitiesFragment();
+            replaceWithFragment(recentActivitiesFragment);
         } else if (id == R.id.nav_news) {
-
+            NewsFragment newsFragment=new NewsFragment();
+            replaceWithFragment(newsFragment);
         } else if (id == R.id.nav_tickets) {
-
+            TicketsFragment ticketsFragment=new TicketsFragment();
+            replaceWithFragment(ticketsFragment);
         } else if (id == R.id.nav_sales) {
-
+            SalesFragment salesFragment=new SalesFragment();
+            replaceWithFragment(salesFragment);
         } else if (id == R.id.nav_courseSchedule) {
-
+            ScheduleFragment scheduleFragment=new ScheduleFragment();
+            replaceWithFragment(scheduleFragment);
         }else if( id == R.id.nav_settings){
             SettingsFragment settingsFragment=new SettingsFragment();
-            fragmentTransaction.add(R.id.fragmentContainer,settingsFragment);
-            fragmentTransaction.commit();
+            replaceWithFragment(settingsFragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void replaceWithFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainer,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
