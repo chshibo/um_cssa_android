@@ -1,12 +1,9 @@
 package edu.umich.umcssa.umich_cssa;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,10 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-//FIXME:Compatibility of drawer and fragment
+import edu.umich.umcssa.umich_cssa.news.NewsFragment;
+import edu.umich.umcssa.umich_cssa.recentActivities.RecentActivitiesFragment;
+import edu.umich.umcssa.umich_cssa.sales.SalesFragment;
+import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
+import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
+import edu.umich.umcssa.umich_cssa.tickets.TicketsFragment;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
         RecentActivitiesFragment.OnFragmentInteractionListener,NewsFragment.OnFragmentInteractionListener,
@@ -113,11 +114,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_courseSchedule) {
             ScheduleFragment scheduleFragment=new ScheduleFragment();
             replaceWithFragment(scheduleFragment);
-        }else if( id == R.id.nav_settings){
-            SettingsFragment settingsFragment=new SettingsFragment();
-            replaceWithFragment(settingsFragment);
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -126,7 +123,8 @@ public class MainActivity extends AppCompatActivity
     private void replaceWithFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer,fragment);
-        fragmentTransaction.addToBackStack(null);
+//        Add this line if you want to enable back_button_clicked
+//        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

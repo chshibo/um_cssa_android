@@ -17,9 +17,6 @@
         <item
             android:id="@+id/nav_courseSchedule"
             android:title="@string/action_courseSchedule"/>
-        <item
-            android:id="@+id/nav_settings"
-            android:title="@string/action_settings"/>
     </group>
 
    <!--TODO: potential login function-->

@@ -1,4 +1,4 @@
-package edu.umich.umcssa.umich_cssa;
+package edu.umich.umcssa.umich_cssa.sales;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.umich.umcssa.umich_cssa.R;
 
 
 /**
