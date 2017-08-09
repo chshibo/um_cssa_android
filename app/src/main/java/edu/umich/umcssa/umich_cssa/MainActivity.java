@@ -20,6 +20,11 @@ import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
 import edu.umich.umcssa.umich_cssa.tickets.TicketsFragment;
 
+/**
+ * Navigation drawer activity
+ * Shows fragment on content_main
+ * @author Shibo Chen
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
         RecentActivitiesFragment.OnFragmentInteractionListener,NewsFragment.OnFragmentInteractionListener,

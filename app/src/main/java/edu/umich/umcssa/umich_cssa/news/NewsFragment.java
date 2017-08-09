@@ -18,6 +18,7 @@ import edu.umich.umcssa.umich_cssa.R;
  * to handle interaction events.
  * Use the {@link NewsFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * @author Shibo Chen
  */
 public class NewsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
