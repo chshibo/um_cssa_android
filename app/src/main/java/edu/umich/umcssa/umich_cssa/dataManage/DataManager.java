@@ -1,5 +1,9 @@
 package edu.umich.umcssa.umich_cssa.dataManage;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,17 +21,15 @@ import java.util.Scanner;
  * Call getInstance() to get an instance
  * @author Shibo Chen
  */
-public class DataManager {
+public class DataManager{
 
     private static class Holder{
-        private static final DataManager INSTANCE=new DataManager();
+        private static final DataManager INSTANCE=null;
     }
 
-    private DataManager(){}
+    private DataManager() {}
 
-    public static final DataManager getInstance(){
-        return Holder.INSTANCE;
-    }
+    public static final DataManager getInstance(){return Holder.INSTANCE;}
 
     /**
      *Reads in files and returns it as string
