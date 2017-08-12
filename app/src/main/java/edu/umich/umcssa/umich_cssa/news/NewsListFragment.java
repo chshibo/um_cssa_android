@@ -1,4 +1,4 @@
-package edu.umich.umcssa.umich_cssa.tickets;
+package edu.umich.umcssa.umich_cssa.news;
 
 import android.content.Context;
 import android.net.Uri;
@@ -14,13 +14,13 @@ import edu.umich.umcssa.umich_cssa.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TicketsFragment.OnFragmentInteractionListener} interface
+ * {@link NewsListFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link TicketsFragment#newInstance} factory method to
+ * Use the {@link NewsListFragment#newInstance} factory method to
  * create an instance of this fragment.
  * @author Shibo Chen
  */
-public class TicketsFragment extends Fragment {
+public class NewsListFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,7 +32,7 @@ public class TicketsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public TicketsFragment() {
+    public NewsListFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +42,11 @@ public class TicketsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TicketsFragment.
+     * @return A new instance of fragment NewsListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TicketsFragment newInstance(String param1, String param2) {
-        TicketsFragment fragment = new TicketsFragment();
+    public static NewsListFragment newInstance(String param1, String param2) {
+        NewsListFragment fragment = new NewsListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +67,7 @@ public class TicketsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tickets, container, false);
+        return inflater.inflate(R.layout.fragment_news, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

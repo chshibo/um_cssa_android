@@ -13,12 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import edu.umich.umcssa.umich_cssa.news.NewsFragment;
-import edu.umich.umcssa.umich_cssa.recentActivities.RecentActivitiesFragment;
-import edu.umich.umcssa.umich_cssa.sales.SalesFragment;
+import edu.umich.umcssa.umich_cssa.news.NewsListFragment;
+import edu.umich.umcssa.umich_cssa.recentActivities.RecentActivitiesListFragment;
+import edu.umich.umcssa.umich_cssa.sales.SalesListFragment;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
-import edu.umich.umcssa.umich_cssa.tickets.TicketsFragment;
+import edu.umich.umcssa.umich_cssa.tickets.TicketsListFragment;
 
 /**
  * Navigation drawer activity
@@ -27,8 +27,8 @@ import edu.umich.umcssa.umich_cssa.tickets.TicketsFragment;
  */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
-        RecentActivitiesFragment.OnFragmentInteractionListener,NewsFragment.OnFragmentInteractionListener,
-        SalesFragment.OnFragmentInteractionListener,TicketsFragment.OnFragmentInteractionListener,
+        RecentActivitiesListFragment.OnFragmentInteractionListener,NewsListFragment.OnFragmentInteractionListener,
+        SalesListFragment.OnFragmentInteractionListener,TicketsListFragment.OnFragmentInteractionListener,
         ScheduleFragment.OnFragmentInteractionListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,17 +105,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_recentActivities) {
-            RecentActivitiesFragment recentActivitiesFragment=new RecentActivitiesFragment();
-            replaceWithFragment(recentActivitiesFragment);
+            RecentActivitiesListFragment recentActivitiesListFragment =new RecentActivitiesListFragment();
+            replaceWithFragment(recentActivitiesListFragment);
         } else if (id == R.id.nav_news) {
-            NewsFragment newsFragment=new NewsFragment();
-            replaceWithFragment(newsFragment);
+            NewsListFragment newsListFragment =new NewsListFragment();
+            replaceWithFragment(newsListFragment);
         } else if (id == R.id.nav_tickets) {
-            TicketsFragment ticketsFragment=new TicketsFragment();
-            replaceWithFragment(ticketsFragment);
+            TicketsListFragment ticketsListFragment =new TicketsListFragment();
+            replaceWithFragment(ticketsListFragment);
         } else if (id == R.id.nav_sales) {
-            SalesFragment salesFragment=new SalesFragment();
-            replaceWithFragment(salesFragment);
+            SalesListFragment salesListFragment =new SalesListFragment();
+            replaceWithFragment(salesListFragment);
         } else if (id == R.id.nav_courseSchedule) {
             ScheduleFragment scheduleFragment=new ScheduleFragment();
             replaceWithFragment(scheduleFragment);
