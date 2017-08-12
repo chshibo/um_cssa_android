@@ -96,4 +96,13 @@ public class DataManager {
         }
         return jsonObject;
     }
+
+    /**
+     * Writes jsonObj to file
+     * @param jsonObject the jsonobj
+     * @param fileName the fileName
+     */
+    public void writeJson(JSONObject jsonObject, String fileName){
+        writeFile(fileName,jsonObject.toString());
+    }
 }
