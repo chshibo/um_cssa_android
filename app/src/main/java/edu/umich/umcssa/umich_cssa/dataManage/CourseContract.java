@@ -24,5 +24,5 @@ public final class CourseContract {
             Course.COLUMN_COURSE_NAME+" TEXT,"+Course.COLUMN_START_TIME+" INT,"+
             Course.COLUMN_END_TIME+" INT,"+Course.COLUMN_LOC+" TEXT,"+Course.COLUMN_PROFESSOR+
             " TEXT"+")";
-    public static final String DROP_TABLE="DROP TABLE IF EXISTS "+Course.TABLE_NAME;
+    public static final String DELETE_TABLE="DROP TABLE IF EXISTS "+Course.TABLE_NAME;
 }
