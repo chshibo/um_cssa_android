@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import edu.umich.umcssa.umich_cssa.dataManage.CourseDBHelper;
+import edu.umich.umcssa.umich_cssa.dataManage.FeedItemDBHelper;
 import edu.umich.umcssa.umich_cssa.news.NewsListFragment;
 import edu.umich.umcssa.umich_cssa.recentActivities.RecentActivitiesListFragment;
 import edu.umich.umcssa.umich_cssa.sales.SalesListFragment;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity
         RecentActivitiesListFragment.OnFragmentInteractionListener,NewsListFragment.OnFragmentInteractionListener,
         SalesListFragment.OnFragmentInteractionListener,TicketsListFragment.OnFragmentInteractionListener,
         ScheduleFragment.OnFragmentInteractionListener{
+    private FeedItemDBHelper feedItemDBHelper;
+    private CourseDBHelper courseDBHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //T
+//        sets the first item clicked at the start up
+        navigationView.getMenu().getItem(0).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().getItem(0));
     }
 
     @Override
@@ -120,6 +127,8 @@ public class MainActivity extends AppCompatActivity
             ScheduleFragment scheduleFragment=new ScheduleFragment();
             replaceWithFragment(scheduleFragment);
         }
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
