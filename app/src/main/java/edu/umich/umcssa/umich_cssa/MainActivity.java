@@ -16,12 +16,10 @@ import android.view.MenuItem;
 
 import edu.umich.umcssa.umich_cssa.dataManage.CourseDBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemDBHelper;
-import edu.umich.umcssa.umich_cssa.news.NewsListFragment;
-import edu.umich.umcssa.umich_cssa.recentActivities.RecentActivitiesListFragment;
-import edu.umich.umcssa.umich_cssa.sales.SalesListFragment;
+import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
+import edu.umich.umcssa.umich_cssa.dummy.DummyContent;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
-import edu.umich.umcssa.umich_cssa.tickets.TicketsListFragment;
 
 /**
  * Navigation drawer activity
@@ -30,9 +28,7 @@ import edu.umich.umcssa.umich_cssa.tickets.TicketsListFragment;
  */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
-        RecentActivitiesListFragment.OnFragmentInteractionListener,NewsListFragment.OnFragmentInteractionListener,
-        SalesListFragment.OnFragmentInteractionListener,TicketsListFragment.OnFragmentInteractionListener,
-        ScheduleFragment.OnFragmentInteractionListener{
+        ScheduleFragment.OnFragmentInteractionListener, PageFragment.OnListFragmentInteractionListener{
     private FeedItemDBHelper feedItemDBHelper;
     private CourseDBHelper courseDBHelper;
     @Override
@@ -110,23 +106,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_recentActivities) {
-            RecentActivitiesListFragment recentActivitiesListFragment =new RecentActivitiesListFragment();
-            replaceWithFragment(recentActivitiesListFragment);
-        } else if (id == R.id.nav_news) {
-            NewsListFragment newsListFragment =new NewsListFragment();
-            replaceWithFragment(newsListFragment);
-        } else if (id == R.id.nav_tickets) {
-            TicketsListFragment ticketsListFragment =new TicketsListFragment();
-            replaceWithFragment(ticketsListFragment);
-        } else if (id == R.id.nav_sales) {
-            SalesListFragment salesListFragment =new SalesListFragment();
-            replaceWithFragment(salesListFragment);
-        } else if (id == R.id.nav_courseSchedule) {
-            ScheduleFragment scheduleFragment=new ScheduleFragment();
+        if (id == R.id.nav_courseSchedule) {
+            ScheduleFragment scheduleFragment = new ScheduleFragment();
             replaceWithFragment(scheduleFragment);
+        }else{
+            Bundle args=new Bundle();
+            if (id == R.id.nav_recentActivities) {
+                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.RECENT_ACTIVITIES);
+            } else if (id == R.id.nav_news) {
+                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.NEWS);
+            } else if (id == R.id.nav_tickets) {
+                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.TICKET);
+            } else if (id == R.id.nav_sales) {
+                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.SALES);
+            }
+            PageFragment pageFragment=new PageFragment();
+            replaceWithFragment(pageFragment);
         }
+
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -140,5 +137,10 @@ public class MainActivity extends AppCompatActivity
 //        Add this line if you want to enable back_button_clicked
 //        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+        //TODO
     }
 }

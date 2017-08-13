@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
+//XXX:content provider methods
 /**
  * Created by chshibo on 8/9/17.
  * An standard interface for app to manage data

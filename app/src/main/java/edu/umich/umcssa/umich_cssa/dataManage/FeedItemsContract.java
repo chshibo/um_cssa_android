@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 
 public final class FeedItemsContract {
     private FeedItemsContract(){}
-
+    public enum TYPES{RECENT_ACTIVITIES,NEWS,TICKET,SALES}
     public static class FeedEntry implements BaseColumns{
         public static final String TABLE_NAME="FeedEntry";
         public static final String COLUMN_TYPE="type";
@@ -19,8 +19,6 @@ public final class FeedItemsContract {
         public static final String COLUMN_STATUS="updated";
         public static final String COLUMN_LOCAL_LOC="local location";
         public static final String COLUMN_REMOTE_LOC="remote location";
-
-        public enum TYPES{RECENT_ACTIVITIES,NEWS,TICKET,SALES}
     }
 
     public static final String CREATE_TABLE="CREATE TABLE "+FeedEntry.TABLE_NAME+
