@@ -64,10 +64,8 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page_list, container, false);
 
-        EntryContent entryContent=new EntryContent();
+        EntryContent entryContent=((MainActivity)getActivity()).addEntriesFromDB(type);
 
-        //TODO
-        entryContent.addItem("Google has created AI","Shibo",100000,"None");
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();

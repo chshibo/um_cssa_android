@@ -22,7 +22,7 @@ public final class FeedItemsContract {
     }
 
     public static final String CREATE_TABLE="CREATE TABLE "+FeedEntry.TABLE_NAME+
-            "("+FeedEntry._ID+" INT PRIMARY KEY,"+FeedEntry.COLUMN_TYPE+" INT,"+
+            "("+FeedEntry._ID+" INT PRIMARY KEY,"+FeedEntry.COLUMN_TYPE+" TEXT,"+
             FeedEntry.COLUMN_TITLE+" TEXT,"+FeedEntry.COLUMN_AUTHOR+" TEXT,"
             +FeedEntry.COLUMN_TIME+" INT,"+FeedEntry.COLUMN_STATUS+" BIT,"+
             FeedEntry.COLUMN_LOCAL_LOC+" TEXT,"+FeedEntry.COLUMN_REMOTE_LOC+" TEXT"+")";

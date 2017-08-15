@@ -12,17 +12,17 @@ public final class CourseContract {
 
     public static class Course implements BaseColumns{
         public static final String TABLE_NAME="Course";
-        public static final String COLUMN_COURSE_INDEX="index";
+        public static final String COLUMN_COURSE_INDEX="course_num";
         public static final String COLUMN_COURSE_NAME="name";
-        public static final String COLUMN_START_TIME="start time";
-        public static final String COLUMN_END_TIME="end time";
+        public static final String COLUMN_START_TIME="start_time";
+        public static final String COLUMN_END_TIME="end_time";
         public static final String COLUMN_LOC="location";
         public static final String COLUMN_PROFESSOR="professor";
     }
     public static final String CREATE_TABLE="CREATE TABLE "+Course.TABLE_NAME+"("+
-            Course._ID+" INT PRIMARY KEY,"+Course.COLUMN_COURSE_INDEX+" TEXT,"+
-            Course.COLUMN_COURSE_NAME+" TEXT,"+Course.COLUMN_START_TIME+" INT,"+
-            Course.COLUMN_END_TIME+" INT,"+Course.COLUMN_LOC+" TEXT,"+Course.COLUMN_PROFESSOR+
+            Course._ID+" INTEGER PRIMARY KEY,"+Course.COLUMN_COURSE_INDEX+" TEXT,"+
+            Course.COLUMN_COURSE_NAME+" TEXT,"+Course.COLUMN_START_TIME+" INTEGER,"+
+            Course.COLUMN_END_TIME+" INTEGER,"+Course.COLUMN_LOC+" TEXT,"+Course.COLUMN_PROFESSOR+
             " TEXT"+")";
     public static final String DELETE_TABLE="DROP TABLE IF EXISTS "+Course.TABLE_NAME;
 }

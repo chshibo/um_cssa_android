@@ -3,20 +3,20 @@ package edu.umich.umcssa.umich_cssa;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import edu.umich.umcssa.umich_cssa.dataManage.CourseDBHelper;
-import edu.umich.umcssa.umich_cssa.dataManage.FeedItemDBHelper;
+import edu.umich.umcssa.umich_cssa.dataManage.DBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
@@ -29,8 +29,7 @@ import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
         ScheduleFragment.OnFragmentInteractionListener, PageFragment.OnListFragmentInteractionListener{
-    private FeedItemDBHelper feedItemDBHelper;
-    private CourseDBHelper courseDBHelper;
+    private DBHelper DBHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +56,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+//        Initialize db
+        DBHelper =new DBHelper(this);
 //        sets the first item clicked at the start up
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity
                 args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.SALES);
             }
             PageFragment pageFragment=new PageFragment();
+            pageFragment.setArguments(args);
             replaceWithFragment(pageFragment);
         }
 
@@ -143,5 +145,35 @@ public class MainActivity extends AppCompatActivity
     public void onListFragmentInteraction(String item) {
         Intent intent = new Intent(this,ContentViewActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStop() {
+        DBHelper.close();
+        super.onStop();
+    }
+
+    public EntryContent addEntriesFromDB(FeedItemsContract.TYPES type){
+        EntryContent entryContent=new EntryContent();
+        SQLiteDatabase db= DBHelper.getReadableDatabase();
+
+        Cursor cursor=db.query(FeedItemsContract.FeedEntry.TABLE_NAME,
+                new String[]{FeedItemsContract.FeedEntry.COLUMN_TITLE,
+                        FeedItemsContract.FeedEntry.COLUMN_AUTHOR,
+                        FeedItemsContract.FeedEntry.COLUMN_TIME,
+                         FeedItemsContract.FeedEntry.COLUMN_LOCAL_LOC},
+                FeedItemsContract.FeedEntry.COLUMN_STATUS+" = ? AND "+
+                        FeedItemsContract.FeedEntry.COLUMN_TYPE+" = ?",
+                new String[]{"True",type.toString()},null,null,null);
+        if(cursor.moveToFirst()){
+            do{
+            entryContent.addItem(
+                    cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_TITLE)),
+                    cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_AUTHOR)),
+                    cursor.getInt(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_TIME)),
+                    cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_LOCAL_LOC)));
+            }while (cursor.moveToNext());
+        }
+        return entryContent;
     }
 }
