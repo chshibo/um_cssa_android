@@ -2,6 +2,7 @@ package edu.umich.umcssa.umich_cssa;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,7 +18,6 @@ import android.view.MenuItem;
 import edu.umich.umcssa.umich_cssa.dataManage.CourseDBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemDBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
-import edu.umich.umcssa.umich_cssa.dummy.DummyContent;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
 
@@ -140,7 +140,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        //TODO
+    public void onListFragmentInteraction(String item) {
+        Intent intent = new Intent(this,ContentViewActivity.class);
+        startActivity(intent);
     }
 }

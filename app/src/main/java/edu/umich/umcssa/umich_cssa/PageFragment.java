@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
-import edu.umich.umcssa.umich_cssa.dummy.DummyContent;
-import edu.umich.umcssa.umich_cssa.dummy.DummyContent.DummyItem;
 
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -65,6 +64,10 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page_list, container, false);
 
+        EntryContent entryContent=new EntryContent();
+
+        //TODO
+        entryContent.addItem("Google has created AI","Shibo",100000,"None");
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -74,7 +77,7 @@ public class PageFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyPageRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyPageRecyclerViewAdapter(entryContent.ITEMS, mListener));
         }
         return view;
     }
@@ -109,6 +112,6 @@ public class PageFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(String path);
     }
 }
