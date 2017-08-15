@@ -7,20 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a8ca9e4-a724-4337-8cf9-8fd6fb709bc3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseDBHelper.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemDBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DisplayJsonContract.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java" />
     </list>
     <ignored path="Umich_cssa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +47,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+            <state relative-caret-position="120">
+              <caret line="149" column="33" selection-start-line="149" selection-start-column="33" selection-end-line="149" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activity.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-26/android.jar!/android/app/Activity.class">
+      <file leaf-file-name="FeedItemsContract.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="1115" column="0" selection-start-line="1115" selection-start-column="0" selection-end-line="1115" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -96,29 +88,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntryContent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/EntryContent.java">
+      <file leaf-file-name="PageFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="158">
+              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#362#363#0" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
-                <element signature="class#Item#0;class#EntryContent#0" expanded="false" />
-                <element signature="method#Item#0;class#Item#0;class#EntryContent#0" expanded="false" />
-                <element signature="method#Item#1;class#Item#0;class#EntryContent#0" expanded="false" />
-                <element signature="class#DateComparator#0;class#EntryContent#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DBHelper.java">
+      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="30" column="62" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+            <state relative-caret-position="161">
+              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContentViewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="34" column="92" selection-start-line="34" selection-start-column="92" selection-end-line="34" selection-end-column="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayJsonContract.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DisplayJsonContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -127,41 +135,21 @@
       <file leaf-file-name="CourseContract.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="165">
               <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeedItemsContract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java">
+      <file leaf-file-name="DummyContent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dummy/DummyContent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#479#490#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContentViewActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2308,7 +2296,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemDBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseDBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_recent_activities_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/news/NewsListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_content_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MyPageRecyclerViewAdapter.java" />
@@ -2319,9 +2306,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DisplayJsonContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java" />
       </list>
     </option>
   </component>
@@ -2948,7 +2938,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502778635156</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added function to query the database in mainactivity">
+      <created>1502785969751</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1502785969751</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3037,7 +3034,8 @@
     <MESSAGE value="--set the default clicked item at the start up" />
     <MESSAGE value="changed listViews to  a single fragment" />
     <MESSAGE value="finished part of listfragment" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished part of listfragment" />
+    <MESSAGE value="added function to query the database in mainactivity" />
+    <option name="LAST_COMMIT_MESSAGE" value="added function to query the database in mainactivity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3046,7 +3044,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3189,16 +3186,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dummy/DummyContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding>
-            <element signature="e#479#490#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MyPageRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -3315,31 +3302,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;method#readFile#0;class#DataManager#0" expanded="false" />
-            <element signature="method#readFile#0;class#DataManager#0" expanded="false" />
-            <element signature="docComment;method#writeFile#0;class#DataManager#0" expanded="false" />
-            <element signature="method#writeFile#0;class#DataManager#0" expanded="false" />
-            <element signature="docComment;method#getJson#0;class#DataManager#0" expanded="false" />
-            <element signature="method#getJson#0;class#DataManager#0" expanded="false" />
-            <element signature="docComment;method#writeJson#0;class#DataManager#0" expanded="false" />
-            <element signature="method#writeJson#0;class#DataManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/EntryContent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -3353,22 +3315,6 @@
             <element signature="method#Item#1;class#Item#0;class#EntryContent#0" expanded="false" />
             <element signature="class#DateComparator#0;class#EntryContent#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3406,23 +3352,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        <state relative-caret-position="158">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/PageFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="149" column="33" selection-start-line="149" selection-start-column="33" selection-end-line="149" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dummy/DummyContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding>
+            <element signature="e#479#490#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/FeedItemsContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/CourseContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/ContentViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="34" column="92" selection-start-line="34" selection-start-column="92" selection-end-line="34" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/umich/umcssa/umich_cssa/dataManage/DisplayJsonContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

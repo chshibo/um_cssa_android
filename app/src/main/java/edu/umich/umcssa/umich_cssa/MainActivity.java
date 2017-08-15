@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
         ScheduleFragment.OnFragmentInteractionListener, PageFragment.OnListFragmentInteractionListener{
     private DBHelper DBHelper;
+    public static final String ARGS_PATH=new String("JSON_FILE_PATH");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,6 +145,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(String item) {
         Intent intent = new Intent(this,ContentViewActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putString(ARGS_PATH,item);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

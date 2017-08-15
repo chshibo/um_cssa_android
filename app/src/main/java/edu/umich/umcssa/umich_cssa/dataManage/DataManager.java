@@ -34,17 +34,18 @@ public class DataManager{
     /**
      *Reads in files and returns it as string
      * @param fileName the absolute path of the file
+     * @param context the context
      * @return data in file as string
      */
-    private String readFile(String fileName){
+    private String readFile(Context context,String fileName) throws FileNotFoundException{
         String string=new String();
-        File file=new File(fileName);
+        File file=new File(context.getFilesDir(),fileName);
         Scanner scanner=null;
         try{
             scanner=new Scanner(file);
             string=scanner.useDelimiter("\\A").next();
         }catch (FileNotFoundException e){
-            e.printStackTrace();
+            throw e;
         }finally {
             scanner.close();
         }
@@ -54,14 +55,16 @@ public class DataManager{
 
     /**
      * Writes data to the file
+     * @param context context of the file
      * @param fileName absolute address of the file
      * @param data data
      */
-    private void writeFile(String fileName, String data){
+    private void writeFile(Context context,String fileName, String data){
         FileWriter fileWriter=null;
         BufferedWriter bufferedWriter=null;
         try{
-            fileWriter=new FileWriter(fileName);
+            File file=new File(context.getFilesDir(),fileName);
+            fileWriter=new FileWriter(file.getAbsolutePath());
             bufferedWriter=new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
         }catch (IOException e){
@@ -86,25 +89,29 @@ public class DataManager{
 
     /**
      * Gets jsonObject from file
-     * @param fileName absolute address of file
+     * @param fileName address of file
+     * @param context context of the app
      * @return Parsed jsonObject
      */
-    public JSONObject getJson(String fileName){
+    public JSONObject getJson(Context context,String fileName) throws FileNotFoundException, JSONException{
         JSONObject jsonObject=null;
         try {
-            jsonObject=new JSONObject(readFile(fileName));
+            jsonObject=new JSONObject(readFile(context,fileName));
         } catch (JSONException e) {
-            e.printStackTrace();
+            throw e;
+        } catch (FileNotFoundException e){
+            throw e;
         }
         return jsonObject;
     }
 
     /**
      * Writes jsonObj to file
+     * @param context context of the file
      * @param jsonObject the jsonobj
      * @param fileName the fileName
      */
-    public void writeJson(JSONObject jsonObject, String fileName){
-        writeFile(fileName,jsonObject.toString());
+    public void writeJson(Context context,JSONObject jsonObject, String fileName){
+        writeFile(context,fileName,jsonObject.toString());
     }
 }
