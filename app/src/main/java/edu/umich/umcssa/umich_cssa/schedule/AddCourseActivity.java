@@ -1,11 +1,11 @@
 package edu.umich.umcssa.umich_cssa.schedule;
 
+
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.os.Bundle;
 import java.io.IOException;
 import java.util.ArrayList;
 

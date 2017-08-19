@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContentViewActivity" />
-        <activity android:name=".schedule.AddCourseActivity" />
+        <activity android:name=".schedule.AddCourseActivity"></activity>
         <activity android:name=".schedule.DeleteCourseActivity"></activity>
     </application>
 
