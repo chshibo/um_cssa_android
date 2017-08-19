@@ -13,5 +13,12 @@
     <!--Setting strings-->
     <string name="category_network">Network</string>
     <string name="network_setting_title">Download under 3G/4G network</string>
+    <string name="title_activity_delete_course">DeleteCourseActivity</string>
 
+    <string name="course_catalog">Course Catalog</string>
+    <string name="course_Nbr">Course Number</string>
+
+    <string name="input_course_catalog">Course catalog, i.e.EECS</string>
+    <string name="input_course_nbr">Course number, i.e.183</string>
+    <string name="search_course_section">Search</string>
 </resources>

@@ -23,7 +23,7 @@ public class ContentViewActivity extends AppCompatActivity {
         Bundle bundle=(Bundle)getIntent().getExtras();
         DataManager dataManager=DataManager.getInstance();
         try{
-            JSONObject jsonObject=dataManager.getJson(bundle.getString(MainActivity.ARGS_PATH));
+            JSONObject jsonObject=dataManager.getJson(getApplicationContext(),bundle.getString(MainActivity.ARGS_PATH));
             TextView text_Header=(TextView)findViewById(R.id.textView_header);
             TextView text_content=(TextView)findViewById(R.id.textView_content);
             text_Header.setText(jsonObject.getString(DisplayJsonContract.Elements.HEADER));

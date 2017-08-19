@@ -15,9 +15,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import edu.umich.umcssa.umich_cssa.dataManage.DBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
+import edu.umich.umcssa.umich_cssa.schedule.AddCourseActivity;
+import edu.umich.umcssa.umich_cssa.schedule.DeleteCourseActivity;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
 
@@ -179,5 +182,15 @@ public class MainActivity extends AppCompatActivity
             }while (cursor.moveToNext());
         }
         return entryContent;
+    }
+
+    public void addCourse(View view){
+        Intent intent=new Intent(this,AddCourseActivity.class);
+        startActivity(intent);
+    }
+
+    public void delCourse(View view){
+        Intent intent=new Intent(this,DeleteCourseActivity.class);
+        startActivity(intent);
     }
 }

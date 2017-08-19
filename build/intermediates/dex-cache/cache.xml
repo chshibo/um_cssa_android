@@ -7,8 +7,17 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="ba99daa6be6c131aaf1b39a77d3538af2dc14fa2">
+        sha1="0d7682293179c9d8defc0e900f15550ba06a914d">
         <dex dex="/home/chshibo/AndroidStudioProjects/Umich_cssa/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_245522d4e5b277c560a10fc0b7beb99e5d74f49e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/chshibo/AndroidStudioProjects/Umich_cssa/app/libs/jsoup-1.10.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="5df02f295714ac1b907d507dfea29a5a9f8f69ca">
+        <dex dex="/home/chshibo/AndroidStudioProjects/Umich_cssa/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.3_5e1f4a7ef80bde6a33b713bb7294d185b5cc3446/classes.dex" />
     </item>
     <item
         is-multidex="true"
