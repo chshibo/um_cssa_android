@@ -31,7 +31,8 @@ import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
  */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
-        ScheduleFragment.OnFragmentInteractionListener, PageFragment.OnListFragmentInteractionListener{
+        ScheduleFragment.OnFragmentInteractionListener,
+        PageFragment.OnListFragmentInteractionListener, ItemsRenewedHandler{
     private DBHelper DBHelper;
     public static final String ARGS_PATH=new String("JSON_FILE_PATH");
     @Override
