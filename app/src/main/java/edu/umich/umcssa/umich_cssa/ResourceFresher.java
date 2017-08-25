@@ -17,6 +17,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import edu.umich.umcssa.umich_cssa.dataManage.DataManager;
+
 /**
  * Created by chshibo on 8/23/17.
  */
@@ -48,9 +50,10 @@ public class ResourceFresher extends AsyncTask<Integer,Integer,ArrayList<String>
             int requestCode= connection.getResponseCode();
             if(requestCode== HttpURLConnection.HTTP_OK){
                 stream=connection.getInputStream();
-                String body=readStream(stream, Integer.MAX_VALUE);
+                DataManager dtmanager=DataManager.getInstance();
+                String body=dtmanager.readStream(stream, Integer.MAX_VALUE);
                 JSONObject jsonObj=new JSONObject(body);
-                JSONArray arr=jsonObj.getJSONArray("Items");
+                JSONArray arr=jsonObj.getJSONArray("items");
                 for (int i=0;i<arr.length();++i){
                     strs.add(arr.getString(i));
                 }
@@ -72,28 +75,12 @@ public class ResourceFresher extends AsyncTask<Integer,Integer,ArrayList<String>
         return strs;
     }
 
-    /**
-     * Converts the contents of an InputStream to a String.
-     */
-    public String readStream(InputStream stream, int maxReadSize)
-            throws IOException, UnsupportedEncodingException {
-        Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
-        char[] rawBuffer = new char[maxReadSize];
-        int readSize;
-        StringBuffer buffer = new StringBuffer();
-        while (((readSize = reader.read(rawBuffer)) != -1) && maxReadSize > 0) {
-            if (readSize > maxReadSize) {
-                readSize = maxReadSize;
-            }
-            buffer.append(rawBuffer, 0, readSize);
-            maxReadSize -= readSize;
-        }
-        return buffer.toString();
-    }
 
     @Override
     protected void onPostExecute(ArrayList<String> strings) {
-        super.onPostExecute(strings);
+        if(!strings.isEmpty()){
+            ResourceGetter resourceGetter=new ResourceGetter(this.mainActivity);
+            resourceGetter.execute(strings);
+        }
     }
 }

@@ -12,6 +12,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 //XXX:content provider methods
 /**
@@ -62,8 +66,9 @@ public class DataManager{
     private void writeFile(Context context,String fileName, String data){
         FileWriter fileWriter=null;
         BufferedWriter bufferedWriter=null;
+        File file=null;
         try{
-            File file=new File(context.getFilesDir(),fileName);
+            file=new File(context.getFilesDir(),fileName);
             fileWriter=new FileWriter(file.getAbsolutePath());
             bufferedWriter=new BufferedWriter(fileWriter);
             bufferedWriter.write(data);
@@ -113,5 +118,25 @@ public class DataManager{
      */
     public void writeJson(Context context,JSONObject jsonObject, String fileName){
         writeFile(context,fileName,jsonObject.toString());
+    }
+
+    /**
+     * Converts the contents of an InputStream to a String.
+     */
+    public String readStream(InputStream stream, int maxReadSize)
+            throws IOException, UnsupportedEncodingException {
+        Reader reader = null;
+        reader = new InputStreamReader(stream, "UTF-8");
+        char[] rawBuffer = new char[maxReadSize];
+        int readSize;
+        StringBuffer buffer = new StringBuffer();
+        while (((readSize = reader.read(rawBuffer)) != -1) && maxReadSize > 0) {
+            if (readSize > maxReadSize) {
+                readSize = maxReadSize;
+            }
+            buffer.append(rawBuffer, 0, readSize);
+            maxReadSize -= readSize;
+        }
+        return buffer.toString();
     }
 }

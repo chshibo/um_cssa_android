@@ -27,26 +27,26 @@ public class EntryContent {
         Collections.sort(ITEMS,new DateComparator());
     }
 
-    public void addItem(String title, String author, int date, String path){
-        addItem(new Item(title,author,date,path));
+    public void addItem(String title, String author, int date, int index){
+        addItem(new Item(title,author,date,index));
     }
     class Item{
         private String title;
         private String author;
         private int date;
-        private String path;
+        private int index;
 
-        Item(String title,String author, int date, String path){
+        Item(String title,String author, int date, int index){
             this.title=title;
             this.author=author;
             this.date=date;
-            this.path=path;
+            this.index=index;
         }
         Item(){
             this.title=new String();
             this.author=new String();
             this.date=0;
-            this.path=new String();
+            this.index=0;
         }
 
         public void setAuthor(String author) {
@@ -57,9 +57,6 @@ public class EntryContent {
             this.date = date;
         }
 
-        public void setPath(String path) {
-            this.path = path;
-        }
 
         public void setTitle(String title) {
             this.title = title;
@@ -73,8 +70,12 @@ public class EntryContent {
             return author;
         }
 
-        public String getPath() {
-            return path;
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        public int getIndex() {
+            return index;
         }
 
         public String getTitle() {

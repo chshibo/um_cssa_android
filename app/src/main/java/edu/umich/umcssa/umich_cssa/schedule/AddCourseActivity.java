@@ -11,6 +11,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import edu.umich.umcssa.umich_cssa.OnAsyncFinishListener;
 import edu.umich.umcssa.umich_cssa.R;
 
 public class AddCourseActivity extends AppCompatActivity implements OnAsyncFinishListener {
@@ -46,7 +47,7 @@ public class AddCourseActivity extends AppCompatActivity implements OnAsyncFinis
     }
 
     @Override
-    public void AsyncTaskFinished(@NonNull ArrayList<Course> courses) {
+    public void AsyncTaskFinished() {
 
     }
 }

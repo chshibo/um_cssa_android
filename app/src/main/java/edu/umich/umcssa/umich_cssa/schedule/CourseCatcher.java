@@ -1,7 +1,6 @@
 package edu.umich.umcssa.umich_cssa.schedule;
 
 import android.os.AsyncTask;
-import android.view.View;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +10,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import edu.umich.umcssa.umich_cssa.OnAsyncFinishListener;
 
 /**
  * A singleton class to do the web course catcher

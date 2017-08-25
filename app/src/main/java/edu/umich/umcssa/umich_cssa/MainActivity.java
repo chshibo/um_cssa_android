@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import edu.umich.umcssa.umich_cssa.dataManage.DBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
 import edu.umich.umcssa.umich_cssa.schedule.AddCourseActivity;
+import edu.umich.umcssa.umich_cssa.schedule.Course;
 import edu.umich.umcssa.umich_cssa.schedule.DeleteCourseActivity;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
@@ -32,9 +36,10 @@ import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener,
         ScheduleFragment.OnFragmentInteractionListener,
-        PageFragment.OnListFragmentInteractionListener, ItemsRenewedHandler{
+        PageFragment.OnListFragmentInteractionListener,OnAsyncFinishListener{
     private DBHelper DBHelper;
     public static final String ARGS_PATH=new String("JSON_FILE_PATH");
+    private static MenuItem selectedMenuItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +115,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        selectedMenuItem=item;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_courseSchedule) {
@@ -169,17 +175,16 @@ public class MainActivity extends AppCompatActivity
                 new String[]{FeedItemsContract.FeedEntry.COLUMN_TITLE,
                         FeedItemsContract.FeedEntry.COLUMN_AUTHOR,
                         FeedItemsContract.FeedEntry.COLUMN_TIME,
-                         FeedItemsContract.FeedEntry.COLUMN_LOCAL_LOC},
-                FeedItemsContract.FeedEntry.COLUMN_STATUS+" = ? AND "+
+                        FeedItemsContract.FeedEntry.COLUMN_INDEX},
                         FeedItemsContract.FeedEntry.COLUMN_TYPE+" = ?",
-                new String[]{"True",type.toString()},null,null,null);
+                new String[]{type.toString()},null,null,null);
         if(cursor.moveToFirst()){
             do{
             entryContent.addItem(
                     cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_TITLE)),
                     cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_AUTHOR)),
                     cursor.getInt(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_TIME)),
-                    cursor.getString(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_LOCAL_LOC)));
+                    cursor.getInt(cursor.getColumnIndex(FeedItemsContract.FeedEntry.COLUMN_INDEX)));
             }while (cursor.moveToNext());
         }
         return entryContent;
@@ -193,5 +198,14 @@ public class MainActivity extends AppCompatActivity
     public void delCourse(View view){
         Intent intent=new Intent(this,DeleteCourseActivity.class);
         startActivity(intent);
+    }
+
+    public edu.umich.umcssa.umich_cssa.dataManage.DBHelper getDBHelper() {
+        return DBHelper;
+    }
+
+    @Override
+    public void AsyncTaskFinished() {
+        onNavigationItemSelected(selectedMenuItem);
     }
 }

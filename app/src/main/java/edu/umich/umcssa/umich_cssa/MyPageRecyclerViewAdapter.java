@@ -48,7 +48,7 @@ public class MyPageRecyclerViewAdapter extends RecyclerView.Adapter<MyPageRecycl
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(mValues.get(position).getPath());
+                    mListener.onListFragmentInteraction(mValues.get(position).getIndex()+"");
                 }
             }
         });
