@@ -47,7 +47,7 @@ public class AddCourseActivity extends AppCompatActivity implements OnAsyncFinis
     }
 
     @Override
-    public void AsyncTaskFinished() {
+    public void asyncTaskFinished() {
 
     }
 }

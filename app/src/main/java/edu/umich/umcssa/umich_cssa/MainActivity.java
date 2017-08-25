@@ -2,12 +2,14 @@ package edu.umich.umcssa.umich_cssa;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,12 +20,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
+import java.math.BigInteger;
+import java.util.Date;
 
 import edu.umich.umcssa.umich_cssa.dataManage.DBHelper;
 import edu.umich.umcssa.umich_cssa.dataManage.FeedItemsContract;
 import edu.umich.umcssa.umich_cssa.schedule.AddCourseActivity;
-import edu.umich.umcssa.umich_cssa.schedule.Course;
 import edu.umich.umcssa.umich_cssa.schedule.DeleteCourseActivity;
 import edu.umich.umcssa.umich_cssa.schedule.ScheduleFragment;
 import edu.umich.umcssa.umich_cssa.settings.SettingsFragment;
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity
 //        sets the first item clicked at the start up
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
+
+        update();
     }
 
     @Override
@@ -205,7 +209,31 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void AsyncTaskFinished() {
+    public void asyncTaskFinished() {
         onNavigationItemSelected(selectedMenuItem);
+        saveLastUpdateTime();
+    }
+
+    public boolean saveLastUpdateTime() {
+        SharedPreferences sharedPreference = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreference.edit();
+        Date date = new Date();
+        editor.putString(getString(R.string.update_time), String.valueOf(System.currentTimeMillis()));
+        editor.commit();
+        return true;
+    }
+
+    public Long getLastUpdateTime(){
+        SharedPreferences sharedPreferences=getPreferences(Context.MODE_PRIVATE);
+        String defaultTimeInStr=getResources().getString(R.string.update_time);
+        String lastUpdateTime=sharedPreferences.getString(getString(R.string.update_time),
+                defaultTimeInStr);
+        return Long.getLong(lastUpdateTime);
+    }
+
+    public void update(){
+        Long time=getLastUpdateTime();
+        ResourceFresher resourceFresher=new ResourceFresher(this);
+        resourceFresher.execute(time);
     }
 }

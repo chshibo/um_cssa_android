@@ -23,7 +23,7 @@ import edu.umich.umcssa.umich_cssa.dataManage.DataManager;
  * Created by chshibo on 8/23/17.
  */
 
-public class ResourceFresher extends AsyncTask<Integer,Integer,ArrayList<String>>{
+public class ResourceFresher extends AsyncTask<Long,Integer,ArrayList<String>>{
     private MainActivity mainActivity=null;
     private static URL url = null;
     public ResourceFresher(MainActivity mainActivity){
@@ -35,7 +35,7 @@ public class ResourceFresher extends AsyncTask<Integer,Integer,ArrayList<String>
         }
     }
     @Override
-    protected ArrayList<String> doInBackground(Integer... integers) {
+    protected ArrayList<String> doInBackground(Long... integers) {
         ArrayList<String> strs=new ArrayList<>();
         HttpURLConnection connection=null;
         InputStream stream=null;

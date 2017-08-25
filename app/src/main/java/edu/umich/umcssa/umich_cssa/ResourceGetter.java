@@ -7,13 +7,9 @@ import android.os.AsyncTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.xml.sax.DTDHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -50,7 +46,7 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
             JSONArray jsonArray=new JSONArray();
             for (int i=0;i<arrayLists[0].size();++i){
                 JSONObject jsonObject=new JSONObject();
-                jsonObject.put("index",arrayLists[0].get(i));
+                jsonObject.put("idx",arrayLists[0].get(i));
                 jsonArray.put(i,jsonObject.toString());
             }
             httpURLConnection.setRequestProperty("items",jsonArray.toString());
@@ -115,6 +111,6 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        this.mainActivity.AsyncTaskFinished();
+        this.mainActivity.asyncTaskFinished();
     }
 }

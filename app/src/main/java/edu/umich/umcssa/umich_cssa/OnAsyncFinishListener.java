@@ -11,5 +11,5 @@ import edu.umich.umcssa.umich_cssa.schedule.Course;
  */
 
 public interface OnAsyncFinishListener {
-    public void AsyncTaskFinished();
+    public void asyncTaskFinished();
 }

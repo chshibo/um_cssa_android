@@ -21,4 +21,6 @@
     <string name="input_course_catalog">Course catalog, i.e.EECS</string>
     <string name="input_course_nbr">Course number, i.e.183</string>
     <string name="search_course_section">Search</string>
+
+    <string name="update_time">0</string>
 </resources>
