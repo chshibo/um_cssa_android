@@ -27,7 +27,7 @@ public class ContentViewActivity extends AppCompatActivity {
             TextView text_Header=(TextView)findViewById(R.id.textView_header);
             TextView text_content=(TextView)findViewById(R.id.textView_content);
             text_Header.setText(jsonObject.getString(DisplayJsonContract.Elements.HEADER));
-            SimpleDateFormat spf=new SimpleDateFormat("MMM/dd/YYYY HH/mm");
+            SimpleDateFormat spf=new SimpleDateFormat("MMM/dd/YYYY HH:mm");
             Date date=new Date(jsonObject.getInt(DisplayJsonContract.Elements.TIME));
             String dateFormate=spf.format(date);
             text_content.setText(jsonObject.getString(DisplayJsonContract.Elements.AUTHOR)+"\n"

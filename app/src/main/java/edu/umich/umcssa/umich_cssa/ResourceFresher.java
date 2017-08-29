@@ -45,7 +45,7 @@ public class ResourceFresher extends AsyncTask<Long,Integer,ArrayList<String>>{
             connection.setConnectTimeout(5000);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Mode","UPDATE");
-            connection.setRequestProperty("Time",String.valueOf(integers[0]));
+            connection.setRequestProperty("time",String.valueOf(integers[0]));
             connection.connect();
             int requestCode= connection.getResponseCode();
             if(requestCode== HttpURLConnection.HTTP_OK){

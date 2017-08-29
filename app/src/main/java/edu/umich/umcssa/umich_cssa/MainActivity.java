@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         PageFragment.OnListFragmentInteractionListener,OnAsyncFinishListener{
     private DBHelper DBHelper;
     public static final String ARGS_PATH=new String("JSON_FILE_PATH");
+    public static final String TIME=new String("time");
     private static MenuItem selectedMenuItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,6 @@ public class MainActivity extends AppCompatActivity
 //        sets the first item clicked at the start up
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
-
-        update();
     }
 
     @Override
@@ -215,25 +214,30 @@ public class MainActivity extends AppCompatActivity
     }
 
     public boolean saveLastUpdateTime() {
-        SharedPreferences sharedPreference = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPreference = this.getSharedPreferences(TIME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreference.edit();
         Date date = new Date();
-        editor.putString(getString(R.string.update_time), String.valueOf(System.currentTimeMillis()));
+        editor.putString(TIME, String.valueOf(System.currentTimeMillis()));
         editor.commit();
         return true;
     }
 
     public Long getLastUpdateTime(){
-        SharedPreferences sharedPreferences=getPreferences(Context.MODE_PRIVATE);
-        String defaultTimeInStr=getResources().getString(R.string.update_time);
-        String lastUpdateTime=sharedPreferences.getString(getString(R.string.update_time),
-                defaultTimeInStr);
-        return Long.getLong(lastUpdateTime);
+        SharedPreferences sharedPreferences=getSharedPreferences(TIME,Context.MODE_PRIVATE);
+        String defaultTimeInStr="1";
+        String lastUpdateTime=sharedPreferences.getString(TIME, defaultTimeInStr);
+        return Long.valueOf(lastUpdateTime);
     }
 
     public void update(){
         Long time=getLastUpdateTime();
         ResourceFresher resourceFresher=new ResourceFresher(this);
         resourceFresher.execute(time);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        update();
     }
 }
