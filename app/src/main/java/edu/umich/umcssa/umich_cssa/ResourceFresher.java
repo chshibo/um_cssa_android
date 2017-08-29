@@ -29,7 +29,7 @@ public class ResourceFresher extends AsyncTask<Long,Integer,ArrayList<String>>{
     public ResourceFresher(MainActivity mainActivity){
         this.mainActivity=mainActivity;
         try {
-            url=new URL("http://138.68.19.91:8080");
+            url=new URL("http://138.68.19.91:80/update");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -50,12 +50,12 @@ public class ResourceFresher extends AsyncTask<Long,Integer,ArrayList<String>>{
             int requestCode= connection.getResponseCode();
             if(requestCode== HttpURLConnection.HTTP_OK){
                 stream=connection.getInputStream();
-                DataManager dtmanager=DataManager.getInstance();
-                String body=dtmanager.readStream(stream, Integer.MAX_VALUE);
+                DataManager dtmanager=new DataManager(mainActivity);
+                String body=dtmanager.readStream(stream);
                 JSONObject jsonObj=new JSONObject(body);
                 JSONArray arr=jsonObj.getJSONArray("items");
                 for (int i=0;i<arr.length();++i){
-                    strs.add(arr.getString(i));
+                    strs.add(arr.getJSONObject(i).getString("idx"));
                 }
             }
         } catch (IOException e) {

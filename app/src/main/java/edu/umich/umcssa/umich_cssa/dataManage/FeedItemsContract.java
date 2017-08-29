@@ -13,7 +13,7 @@ public final class FeedItemsContract {
     public static class FeedEntry implements BaseColumns{
         public static final String TABLE_NAME="FeedEntry";
         public static final String COLUMN_TYPE="type";
-        public static final String COLUMN_TITLE="title";
+        public static final String COLUMN_TITLE="header";
         public static final String COLUMN_AUTHOR="author";
         public static final String COLUMN_TIME="time";
         public static final String COLUMN_INDEX="idx";

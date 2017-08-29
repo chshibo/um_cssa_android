@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity
     public void onListFragmentInteraction(String item) {
         Intent intent = new Intent(this,ContentViewActivity.class);
         Bundle bundle=new Bundle();
-        bundle.putString(ARGS_PATH,item);
+        bundle.putString(ARGS_PATH,item+".json");
         intent.putExtras(bundle);
         startActivity(intent);
     }

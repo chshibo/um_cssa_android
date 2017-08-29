@@ -21,22 +21,24 @@ public class ContentViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_view);
         Bundle bundle=(Bundle)getIntent().getExtras();
-        DataManager dataManager=DataManager.getInstance();
+        DataManager dataManager=new DataManager(this);
         try{
-            JSONObject jsonObject=dataManager.getJson(getApplicationContext(),bundle.getString(MainActivity.ARGS_PATH));
+            JSONObject jsonObject=dataManager.getJson(this.getApplicationContext(),bundle.getString(MainActivity.ARGS_PATH));
             TextView text_Header=(TextView)findViewById(R.id.textView_header);
             TextView text_content=(TextView)findViewById(R.id.textView_content);
             text_Header.setText(jsonObject.getString(DisplayJsonContract.Elements.HEADER));
             SimpleDateFormat spf=new SimpleDateFormat("MMM/dd/YYYY HH/mm");
             Date date=new Date(jsonObject.getInt(DisplayJsonContract.Elements.TIME));
             String dateFormate=spf.format(date);
-            text_Header.setText(jsonObject.getString(DisplayJsonContract.Elements.AUTHOR)+"\n"
+            text_content.setText(jsonObject.getString(DisplayJsonContract.Elements.AUTHOR)+"\n"
                                 +dateFormate+"\n"+
                                 jsonObject.getString(DisplayJsonContract.Elements.CONTENT));
         }catch (FileNotFoundException e){
             // TODO: 8/15/17 Handle this
+            e.printStackTrace();
         }catch (JSONException e){
             // TODO: 8/15/17 Handle this
+            e.printStackTrace();
         }
     }
 }

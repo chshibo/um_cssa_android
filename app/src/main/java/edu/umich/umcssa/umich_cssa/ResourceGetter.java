@@ -3,6 +3,7 @@ package edu.umich.umcssa.umich_cssa;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +29,7 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
     public ResourceGetter(MainActivity mainActivity){
         this.mainActivity=mainActivity;
         try {
-            this.url=new URL("http://138.68.19.91:8080");
+            this.url=new URL("http://138.68.19.91:80/requestFiles");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -49,16 +50,23 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
                 jsonObject.put("idx",arrayLists[0].get(i));
                 jsonArray.put(i,jsonObject.toString());
             }
-            httpURLConnection.setRequestProperty("items",jsonArray.toString());
+            JSONObject object=new JSONObject();
+            object.put("items",jsonArray);
+            httpURLConnection.setRequestProperty("items",object.toString());
             httpURLConnection.connect();
             int requestCode=httpURLConnection.getResponseCode();
+            JSONObject theContext=null;
             JSONArray items =null;
             if(requestCode== HttpURLConnection.HTTP_OK){
                 stream=httpURLConnection.getInputStream();
-                DataManager dataManager=DataManager.getInstance();
-                String itemsDetail=dataManager.readStream(stream, Integer.MAX_VALUE);
-                items=new JSONArray(itemsDetail);
+                DataManager dataManager=new DataManager(mainActivity);
+                String itemsDetail=dataManager.readStream(stream);
+                theContext=new JSONObject(itemsDetail);
+                items=theContext.getJSONArray("items");
             }
+                //TODO
+            Log.d("database",items.length()+"");
+
 
             for (int i = 0; i <items.length() ; i++) {
                 if(saveJsonObjT(items.getJSONObject(i)))
@@ -73,7 +81,7 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
     }
 
     private Boolean saveJsonObjT(JSONObject jsonObject){
-        DataManager dataManager=DataManager.getInstance();
+        DataManager dataManager=new DataManager(mainActivity);
         String fileName=null;
         try {
             fileName=jsonObject.getString(FeedItemsContract.FeedEntry.COLUMN_INDEX)+".json";
@@ -103,6 +111,9 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
                     jsonObj.getInt(FeedItemsContract.FeedEntry.COLUMN_INDEX));
 
             db.insert(FeedItemsContract.FeedEntry.TABLE_NAME,null,values);
+
+            //TODO
+            Log.d("database",jsonObj.getString(FeedItemsContract.FeedEntry.COLUMN_TYPE));
         } catch (JSONException e) {
             e.printStackTrace();
         }
