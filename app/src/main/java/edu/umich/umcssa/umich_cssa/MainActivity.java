@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //        Initialize db
+        DBHelper =new DBHelper(this);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -69,8 +71,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        Initialize db
-        DBHelper =new DBHelper(this);
 //        sets the first item clicked at the start up
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
             } else if (id == R.id.nav_news) {
                 args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.NEWS);
             } else if (id == R.id.nav_tickets) {
-                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.TICKET);
+                args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.TICKETS);
             } else if (id == R.id.nav_sales) {
                 args.putSerializable(PageFragment.ARG_ITEM_TYPE, FeedItemsContract.TYPES.SALES);
             }
@@ -168,6 +168,20 @@ public class MainActivity extends AppCompatActivity
     protected void onStop() {
         DBHelper.close();
         super.onStop();
+    }
+
+    public boolean hasEntry(int idx){
+        SQLiteDatabase db= DBHelper.getReadableDatabase();
+
+        Cursor cursor=db.query(FeedItemsContract.FeedEntry.TABLE_NAME,
+                new String[]{
+                        FeedItemsContract.FeedEntry.COLUMN_INDEX},
+                FeedItemsContract.FeedEntry.COLUMN_INDEX+" = ?",
+                new String[]{idx+""},null,null,null);
+        if(cursor!=null&&cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
     public EntryContent addEntriesFromDB(FeedItemsContract.TYPES type){

@@ -69,8 +69,9 @@ public class ResourceGetter extends AsyncTask<ArrayList<String>,Integer,Boolean>
 
 
             for (int i = 0; i <items.length() ; i++) {
-                if(saveJsonObjT(items.getJSONObject(i)))
-                    saveItemInfoIntoDB(items.getJSONObject(i));
+                if(!mainActivity.hasEntry(items.getJSONObject(i).getInt("idx")))
+                    if(saveJsonObjT(items.getJSONObject(i)))
+                        saveItemInfoIntoDB(items.getJSONObject(i));
             }
         } catch (IOException e) {
             e.printStackTrace();

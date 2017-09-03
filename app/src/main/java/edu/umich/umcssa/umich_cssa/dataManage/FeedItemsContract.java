@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 
 public final class FeedItemsContract {
     private FeedItemsContract(){}
-    public enum TYPES{RECENT_ACTIVITIES,NEWS,TICKET,SALES}
+    public enum TYPES{RECENT_ACTIVITIES,NEWS,TICKETS,SALES}
     public static class FeedEntry implements BaseColumns{
         public static final String TABLE_NAME="FeedEntry";
         public static final String COLUMN_TYPE="type";
